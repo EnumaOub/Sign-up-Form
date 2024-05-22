@@ -164,18 +164,22 @@ label[for="fav-book"] {
     text-align: center;
 }
 
-input:valid:not(#fav-book) {
+input:valid:not(#fav-book):not(#password-conf) {
     border: 2px solid green;
 }
 
-fieldset input:focus, select:focus {
-    border: 2px solid blue;
+input:focus, select:focus {
     background-color: rgba(0, 0, 255, 0.2);
 }
 
-#password:invalid, #password-conf:invalid {
+#password:invalid, #email:invalid, #password-conf:invalid {
     border: 2px solid red;
 }
+
+#password:invalid:placeholder-shown, #email:invalid:placeholder-shown, #password-conf:placeholder-shown {
+    border-color: var(--_inp-color);
+}
+
 
 button {
     --button-color: rgb(187, 171, 152);
@@ -186,6 +190,7 @@ button {
 
     border-radius: var(--border-radius-inp);
     padding: 0.6rem;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) { 
