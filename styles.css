@@ -1,0 +1,208 @@
+html {
+    /* https://github.com/system-fonts/modern-font-stacks?tab=readme-ov-file#old-style */
+    font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif; 
+}
+
+/* Everything is in the main */
+
+main {
+    --text-main-color: rgb(100, 0, 0);
+    --text-high: 3rem;
+    --text-normal: calc(var(--text-high)/2);
+    --main-color: rgb(248, 205, 170);
+    display: flex;
+}
+
+/* Left side of the page, the image */
+
+.left-img {
+    --width-img: 59rem;
+    display: flex;
+}
+
+@media only screen and (max-width: 600px) { 
+    .left-img {
+        flex-shrink: 1;
+        flex-basis: 0;
+        width: 0;
+    }
+    .band-welcome {
+        text-indent: -9999px;
+    }
+}
+
+figure {
+    margin: 0;
+}
+
+.background-img {
+    display: block;
+    max-width: var(--width-img);
+    flex-grow: 100%;
+}
+
+figcaption {
+    background-color: #979797;
+    color: var(--text-main-color);
+    padding: 3px;
+    text-align: center;
+}
+
+.band-welcome {
+    --padding-width: calc( calc( var(--width-img) / 4) / 2 );
+    --_width-txt: 75rem;
+    position: absolute;
+    top: 10rem;
+    left: calc(var(--width-img) / 4 - var(--_width-txt)/4);
+    padding: 0 calc(var(--width-img)/4);
+    padding-top: 0.5rem;
+    z-index: 1;
+    background-color: rgba(248, 205, 170, 0.3);
+    font-size: var(--text-high);
+    max-width: var(--_width-txt);
+    color: var(--text-main-color);
+    flex: 0;
+}
+
+/* Right side of the page, the form */
+
+.right-signup {
+    padding: 0 3.5rem;
+    width: 100%; 
+    background-color: var(--main-color);
+    color: var(--text-main-color);
+    box-shadow: -1rem 0 2rem #222;
+    border-left: 2px solid var(--main-color);
+}
+
+
+
+.title {
+    font-size: var(--text-high);
+    color: var(--text-main-color);
+    text-align: center;
+}
+
+#description {
+    font-size: var(--text-normal);
+}
+
+#description span {
+    font-weight: 600;
+    font-style: italic;
+}
+
+form {
+    --_color-form: rgb(253, 215, 168);
+    --border-radius-inp: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--_color-form);
+    box-shadow: -1rem 0 3rem rgb(156, 133, 103);
+    border: 2px solid var(--_color-form);
+    padding: 0.6rem;
+    margin-top: 3rem;
+    gap: 2rem;
+    max-width: 68rem;
+    border-radius: var(--border-radius-inp);
+    font-size: var(--text-normal);
+}
+
+fieldset {
+    border: 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+input {
+    --_inp-color: var(--inp-color, rgb(216, 187, 151));
+    box-shadow: 0 0 0.2rem rgb(216, 187, 151);
+    background-color: var(--_inp-color);
+    border-color: var(--_inp-color);
+    border-radius: var(--border-radius-inp);
+}
+
+input:hover {
+    --inp-color: rgba(218, 158, 80, 0.705);
+}
+
+select {
+    --_inp-color: var(--inp-color, rgb(216, 187, 151));
+    box-shadow: 0 0 0.2rem rgb(216, 187, 151);
+    color: var(--text-main-color);
+    background-color: var(--_inp-color);
+    border-color: var(--_inp-color);
+    border-radius: var(--border-radius-inp);
+}
+
+select:hover {
+    --inp-color: rgba(218, 158, 80, 0.705);
+}
+
+input, select {
+    padding: 0.5rem 0;
+}
+
+label, input {
+    display: block;
+    cursor: pointer;
+}
+
+.book-genre {
+    width: 22rem;
+    margin-left: 1rem;
+}
+
+label[for="fav-book"] {
+    margin-left: 0.5rem;
+}
+
+.send-data {
+    text-align: center;
+}
+
+input:valid:not(#fav-book) {
+    border: 2px solid green;
+}
+
+fieldset input:focus, select:focus {
+    border: 2px solid blue;
+    background-color: rgba(0, 0, 255, 0.2);
+}
+
+#password:invalid, #password-conf:invalid {
+    border: 2px solid red;
+}
+
+button {
+    --button-color: rgb(187, 171, 152);
+    font-weight: 900;
+    background-color: var(--button-color);
+    color: var(--text-main-color);
+    border: var(--button-color);
+
+    border-radius: var(--border-radius-inp);
+    padding: 0.6rem;
+}
+
+@media only screen and (max-width: 600px) { 
+    
+    main {
+        --text-high: 2rem;
+    }
+    input, select {
+        width: 10rem;
+    }
+    
+    .book-genre {
+        width: 14rem;
+        margin-left: 0;
+    }
+    
+    label[for="fav-book"] {
+        margin-left: 0;
+    }
+}
